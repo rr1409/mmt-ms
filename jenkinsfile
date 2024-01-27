@@ -3,7 +3,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
     }
 
-    agent { label 'jenkins_slave_A' }
+    /** agent { label 'jenkins_slave_A' }**/
 
     tools {
         maven 'maven_3.9.4'
