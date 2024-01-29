@@ -1,4 +1,4 @@
-FROM tomcat:9.0.52-jrell-openjdk-slim
+FROM tomcat:9.0.52-jre11-openjdk-slim
 COPY ./target/mmt*.jar /usr/local/tomcat/webapps
 Expose 8080
 USER mmt-ms
