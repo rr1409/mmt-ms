@@ -33,10 +33,10 @@ pipeline {
     }
     stage('Building & Tag Docker Image') {
       steps {
-        echo 'Starting Building Docker Image'
-        sh 'docker build -t rr1409/mmt-ms .'
-        sh 'docker build -t mmt-ms .'
-        echo 'Completed  Building Docker Image'
+       echo 'Starting Building Docker Image'
+       sh 'docker build -t mmt-ms:dev-mmt-ms-v.1.${BUILD_NUMBER} .'
+       echo 'Completed  Building Docker Image'
+
       }
     }
     stage('Docker Image Scanning') {
