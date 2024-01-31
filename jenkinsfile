@@ -51,6 +51,9 @@ pipeline {
         script {
           withCredentials([string(credentialsId: 'dockerhubCred', variable: 'dockerhubCred')]) {
             sh 'docker login docker.io -u rr1409 -p ${dockerhubCred}'
+            echo "Tagging the Docker Image: In Progress"
+            sh 'docker tag mmt-ms:dev-mmt-ms-v.1.${BUILD_NUMBER} rr1409/mmt-ms:dev-mmt-ms-v.1.${BUILD_NUMBER}'
+            echo "Tagging the Docker Image: Completed"
             echo "Push Docker Image to DockerHub : In Progress"
             sh 'docker push rr1409/mmt-ms:dev-mmt-ms-v.1.${BUILD_NUMBER}'
             echo "Push Docker Image to DockerHub : In Progress"
