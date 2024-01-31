@@ -52,7 +52,7 @@ pipeline {
           withCredentials([string(credentialsId: 'dockerhubCred', variable: 'dockerhubCred')]) {
             sh 'docker login docker.io -u rr1409 -p ${dockerhubCred}'
             echo "Push Docker Image to DockerHub : In Progress"
-            sh 'docker push rr1409/mmt-ms:latest'
+            sh 'docker push rr1409/mmt-ms:dev-mmt-ms-v.1.${BUILD_NUMBER}'
             echo "Push Docker Image to DockerHub : In Progress"
             sh 'whoami'
           }
@@ -67,10 +67,10 @@ pipeline {
             echo "List the docker images present in local"
             docker images
             echo "Tagging the Docker Image: In Progress"
-            docker tag mmt-ms:latest 675685647247.dkr.ecr.ap-south-1.amazonaws.com/mmt-ms:latest
+            docker tag mmt-ms:dev-mmt-ms-v.1.${BUILD_NUMBER} 675685647247.dkr.ecr.ap-south-1.amazonaws.com/mmt-ms:dev-mmt-ms-v.1.${BUILD_NUMBER}
             echo "Tagging the Docker Image: Completed"
             echo "Push Docker Image to ECR : In Progress"
-            docker push 675685647247.dkr.ecr.ap-south-1.amazonaws.com/mmt-ms:latest
+            docker push 675685647247.dkr.ecr.ap-south-1.amazonaws.com/mmt-ms:dev-mmt-ms-v.1.${BUILD_NUMBER}
             echo "Push Docker Image to ECR : Completed"
             """
           }
