@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class holiday {
 
     @GetMapping("/holiday")
-    public String getData() {return "Book a holiday at 20% discount!!";}
+    public String getData() {return "Book a holiday at 50% discount!!";}
 
 }
